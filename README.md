@@ -24,7 +24,7 @@ curl -XGET http://localhost:8080/sample/ws/book/all
 **Create new book**
 
 ```
-curl -XPOST -H "Content-type: application/json" http://localhost:8080/sample/ws/book/all -d '{book:{title:"A book"}}'
+curl -XPOST -H "Content-type: application/json" -d '{"book":{"id":,"title":"Test"}}' http://localhost:8080/sample/ws/book/
 ```
 
 ----
