@@ -1,0 +1,7 @@
+infinitest.filters
+.project
+.classpath
+target
+.settings
+derby.log
+*.orig
