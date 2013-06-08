@@ -11,10 +11,7 @@
 	</prerequisites>
 
 	<properties>
-		<endorsed.dir>${project.build.directory}/endorsed</endorsed.dir>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-		<derby.version>10.9.1.0</derby.version>
-		<flyway.version>2.0.3</flyway.version>
 	</properties>
 
 	<dependencyManagement>
@@ -69,12 +66,6 @@
 			<artifactId>eclipselink</artifactId>
 			<version>2.5.0</version>
 		</dependency>
-		<dependency>
-			<groupId>org.glassfish</groupId>
-			<artifactId>maven-embedded-glassfish-plugin</artifactId>
-			<version>3.1.1</version>
-			<type>maven-plugin</type>
-		</dependency>
 	</dependencies>
 
 	<repositories>
@@ -99,7 +90,6 @@
 	</repositories>
 
 	<build>
-		<defaultGoal>clean package org.glassfish:maven-embedded-glassfish-plugin:3.1.1:run</defaultGoal>
 		<plugins>
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
@@ -108,43 +98,7 @@
 				<configuration>
 					<source>1.7</source>
 					<target>1.7</target>
-					<compilerArguments>
-						<endorseddirs>${endorsed.dir}</endorseddirs>
-					</compilerArguments>
 				</configuration>
-			</plugin>
-			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-war-plugin</artifactId>
-				<version>2.1.1</version>
-				<configuration>
-					<failOnMissingWebXml>false</failOnMissingWebXml>
-				</configuration>
-			</plugin>
-			<plugin>
-				<groupId>org.glassfish</groupId>
-				<artifactId>maven-embedded-glassfish-plugin</artifactId>
-				<version>3.1.1</version>
-				<configuration>
-					<goalPrefix>glassfish</goalPrefix>
-					<app>${project.build.directory}/${project.build.finalName}</app>
-					<port>8080</port>
-					<contextRoot>sample</contextRoot>
-					<name>${project.name}</name>
-					<autoDelete>true</autoDelete>
-				</configuration>
-				<dependencies>
-					<dependency>
-						<groupId>org.apache.derby</groupId>
-						<artifactId>derby</artifactId>
-						<version>${derby.version}</version>
-					</dependency>
-					<dependency>
-						<groupId>org.apache.derby</groupId>
-						<artifactId>derbyclient</artifactId>
-						<version>${derby.version}</version>
-					</dependency>
-				</dependencies>
 			</plugin>
 		</plugins>
 	</build>

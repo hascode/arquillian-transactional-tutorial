@@ -3,10 +3,8 @@ package com.hascode.tutorial.entity;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
-import javax.xml.bind.annotation.XmlRootElement;
 
 @Entity
-@XmlRootElement
 public class Book {
 	@Id
 	@GeneratedValue
@@ -27,10 +25,5 @@ public class Book {
 
 	public final void setTitle(final String title) {
 		this.title = title;
-	}
-
-	@Override
-	public String toString() {
-		return "Book [id=" + id + ", title=" + title + "]";
 	}
 }
